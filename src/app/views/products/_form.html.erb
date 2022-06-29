@@ -17,20 +17,10 @@
   </div>
 
   <div>
-    <%= form.label :sold, style: "display: block" %>
-    <%= form.check_box :sold %>
-  </div>
-
-  <div>
     <%= form.label :category_id, style: "display: block" %>
     <%= form.select :category_id, @categories.map {|c| [c.name, c.id]} %>
   </div>
   
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
   <div>
     <%= form.label :description, style: "display: block" %>
     <%= form.rich_text_area :description %>
@@ -48,7 +38,7 @@
 
   <div>
     <% @conditions.each do |option| %>
-      <%= form.label :condition, option, style: "display: block" %>
+      <%= form.label :condition, format_condtion(option), style: "display: block" %>
       <%= form.radio_button :condition, option %>
     <% end %>
   </div>
