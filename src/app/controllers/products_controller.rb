@@ -69,7 +69,7 @@ class ProductsController < ApplicationController
     def set_form_vars
       @categories = Category.all
       @conditions = Product.conditions.keys
-      @colours = Product.colours
+      @colours = Product.colours.keys
     end
 
     # Only allow a list of trusted parameters through.

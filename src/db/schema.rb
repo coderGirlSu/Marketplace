@@ -64,7 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_28_051213) do
     t.bigint "category_id", null: false
     t.bigint "user_id", null: false
     t.integer "price"
-    t.string "colour"
+    t.integer "colour"
     t.integer "condition"
     t.date "listed_date"
     t.datetime "created_at", null: false
