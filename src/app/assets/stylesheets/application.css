@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+h1.title {
+    color: firebrick;
+}
+
+ .notice {
+    color:green;
+ }
+
+ div.product-layout {
+    display: flex;
+ }
+
+ div.product-layout > div {
+    margin: 10px;
+    border: 1px black solid;
+    padding: 10px;
+ }
