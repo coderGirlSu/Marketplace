@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   belongs_to :category
   belongs_to :user
   has_rich_text :description
+  has_one_attached :picture
 
   enum condition: {
     as_new: 1,
