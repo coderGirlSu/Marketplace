@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
   before_action :set_form_vars, only: %i[ new edit ]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :authorize_user, only: [:edit, :update, :destory]
   # GET /products or /products.json
   def index
     @products = Product.all
@@ -70,6 +71,13 @@ class ProductsController < ApplicationController
       @categories = Category.all
       @conditions = Product.conditions.keys
       @colours = Product.colours.keys
+    end
+
+    def authorize_user
+      if @product.user_id != current_user.id
+        flash[:alert] = "You can't do that!"
+        redirect_to products_path
+      end
     end
 
     # Only allow a list of trusted parameters through.
