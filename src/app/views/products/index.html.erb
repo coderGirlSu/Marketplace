@@ -1,23 +1,19 @@
-<h1>WOMAN</h1>
+<h1 class="product-subtitle">WOMAN</h1>
 
 <div class="product-layout">
   <% @products.each do |product| %>
-    <div>
+    <div class="image">
+      <% if product.picture.attached? %>
+        <%= image_tag product.picture, alt: product.title %>
+      <% else %>
+        <%= image_tag asset_path ("7.jpeg"), alt: product.title %>
+      <% end %>
       <%= product.title %>
-      <%= product.price %>
+      <p>Price: <%= product.price %></p>
+      <%= link_to 'Show more', product %>
     </div>
   <% end %>
 </div>
 
  <%= link_to 'Add new product', new_product_path, class: "button" %>  
 
-<%# <div id="products">
-  <% @products.each do |product| %>
-    <%# <%= render product %>
-    <%# <p>
-      <%= link_to "Show more", product %>
-    <%# </p> %>
-  <%# <% end %> 
-<%# </div> %>
-
-<%# <%= link_to "Add new product", new_product_path %> 

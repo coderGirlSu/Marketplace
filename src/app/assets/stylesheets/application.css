@@ -18,16 +18,26 @@ h1.title {
     color: firebrick;
 }
 
+h1.product-subtitle {
+    margin-left: 20px;
+}
+
  .notice {
     color:green;
  }
 
  div.product-layout {
     display: flex;
+    flex-wrap: wrap;
  }
 
  div.product-layout > div {
     margin: 10px;
-    border: 1px black solid;
+    /* border: 1px black solid; */
     padding: 10px;
+    width: 20%;
+ }
+
+ div.product-layout > div.image > img {
+    width: 100%;
  }

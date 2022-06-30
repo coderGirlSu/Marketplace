@@ -2,15 +2,16 @@
 <div>
 <% if @product.picture.attached? %>
   <%= image_tag @product.picture, alt: @product.title %>
-  <% else %>
+<% else %>
   <%= image_tag asset_path ("7.jpeg"), alt: @product.title %>
-  
 <% end %>
+
 </div>
+
 <div>
   <%= link_to "Back", products_path, class: "button" %>
   <% if current_user.id == @product.user_id %>
     <%= link_to "Edit", edit_product_path(@product), class: "button" %> 
-    <%= button_to "Destroy",class: "button", @product, method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %>
+    <%= button_to "Destroy", @product, method: :delete, class: "button", form: { data: { turbo_confirm: "Are you sure?" } } %>
   <% end %>
 </div>
