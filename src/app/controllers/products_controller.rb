@@ -65,7 +65,9 @@ class ProductsController < ApplicationController
     Order.create(
       product_id: @product.id,
       seller_id: @product.user_id,
-      buyer_id: current_user.id
+      buyer_id: current_user.id,
+      paid: true,
+      date: Time.current
     )
     redirect_to order_success_path
   end
