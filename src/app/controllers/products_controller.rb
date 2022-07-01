@@ -69,6 +69,7 @@ class ProductsController < ApplicationController
       paid: true,
       date: Time.current
     )
+    @product.update(sold: true)
     redirect_to order_success_path
   end
 

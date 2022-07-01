@@ -93,3 +93,9 @@ div.background-image > img {
  div.product-information {
    margin-left: 10px;
  }
+
+ div.product-information > .sold-out {
+   color: #b6483a;
+   font-family: system-ui;
+   font-size: 2.5em;
+ }
