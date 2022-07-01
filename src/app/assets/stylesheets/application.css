@@ -94,6 +94,25 @@ div.background-image > img {
    margin-left: 10px;
  }
 
+ div.product-information > div.product-title {
+   font-weight: bold;
+   font-size: 1.2em;
+ }
+
+ div.product-information .product-condition {
+   font-weight: bold;
+ }
+
+ div.product-information .product-subtitle {
+   font-weight: bold;
+   margin-bottom: 10px;
+   margin-right: 10px;
+ }
+
+ div.product-information .product-description {
+   margin-bottom: 30px;
+ }
+ 
  div.product-information > .sold-out {
    color: #b6483a;
    font-family: system-ui;
