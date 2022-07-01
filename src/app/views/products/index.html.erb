@@ -8,9 +8,13 @@
       <% else %>
         <%= image_tag asset_path ("35.jpeg"), alt: product.title %>
       <% end %>
-      <%= product.title %>
-      <p>Price: <%= product.price %></p>
-      <%= link_to 'Show more', product %>
+
+      <div class="product-title">
+        <%= product.title %>
+      </div>
+        <p>Price: $ <%= product.price %></p>
+      
+      <%= link_to 'Show more', product, class: "button" %>
     </div>
   <% end %>
 </div>

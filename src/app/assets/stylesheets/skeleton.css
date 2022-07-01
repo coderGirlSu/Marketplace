@@ -218,7 +218,7 @@ button.button-primary:focus,
 input[type="submit"].button-primary:focus,
 input[type="reset"].button-primary:focus,
 input[type="button"].button-primary:focus {
-  color: rgb(72, 53, 5);
+  color: rgb(40, 29, 2);
   background-color: #e7bb3b;
   border-color: #e7bb3b; }
 

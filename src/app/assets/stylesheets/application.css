@@ -67,6 +67,11 @@ div.background-image > img {
     width: 100%;
  }
 
+ div.product-layout > div.image > .product-title {
+   font-weight: bold;
+   font-size: 1.2em;
+ }
+
  .guide-section {
     display:flex
  }
@@ -77,9 +82,14 @@ div.background-image > img {
 
  .guide-title {
     margin-left: 10px;
+    color: #2e3047;
     font-family: monospace, fantasy;
  }
 
  .guide-introduction {
     margin-left: 10px;
+ }
+
+ div.product-information {
+   margin-left: 10px;
  }
