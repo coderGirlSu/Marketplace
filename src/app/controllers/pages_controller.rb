@@ -5,4 +5,7 @@ class PagesController < ApplicationController
 
   def guide
   end
+
+  def success
+  end
 end
