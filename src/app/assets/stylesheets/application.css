@@ -14,12 +14,31 @@
  *= require_self
  */
 
+ .navbar {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+ }
+
+ div.navbar > .button {
+    background-color: #b6483a;
+    color: #ededed;
+ }
+
 h1.title {
-    color: firebrick;
+    color: #2e3047;
+    margin-left: 10px;
+    font-family: monospace, fantasy;
 }
 
 h1.product-subtitle {
-    margin-left: 20px;
+    margin-left: 10px;
+    color: #2e3047;
+    font-family: monospace, fantasy;
+}
+
+div.background-image > img {
+    width: 100%;
 }
 
  .notice {
@@ -40,4 +59,21 @@ h1.product-subtitle {
 
  div.product-layout > div.image > img {
     width: 100%;
+ }
+
+ .guide-section {
+    display:flex
+ }
+
+ .guide-section > .guide-info {
+    padding-left: 20px;
+ }
+
+ .guide-title {
+    margin-left: 10px;
+    font-family: monospace, fantasy;
+ }
+
+ .guide-introduction {
+    margin-left: 10px;
  }
