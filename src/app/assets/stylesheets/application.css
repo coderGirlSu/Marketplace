@@ -70,6 +70,16 @@ div.background-image > img {
  div.product-layout > div.image > .product-title {
    font-weight: bold;
    font-size: 1.2em;
+   font-size: 25px;
+ }
+
+ div.product-layout > div.image > .price-title {
+   margin-bottom: 0.2em;
+   font-weight:bold;
+ }
+
+ div.product-layout > div.image > .colour-title {
+   font-weight:bold;
  }
 
  .guide-section {

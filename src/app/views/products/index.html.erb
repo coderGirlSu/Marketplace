@@ -10,10 +10,11 @@
       <% end %>
 
       <div class="product-title">
-        <%= product.title %>
+          <%= product.title %>
       </div>
-        <p>Price: $ <%= product.price %></p>
-        <%# <p>Sold: <%= product.sold %></p> 
+
+      <p class="price-title">$ <%= product.price %></p>
+      <p class="colour-title">Colour: <%= product.colour %></p>
       
       <%= link_to 'Show more', product, class: "button" %>
     </div>
