@@ -118,3 +118,11 @@ div.background-image > img {
    font-family: system-ui;
    font-size: 2.5em;
  }
+
+ .product-editing {
+   margin-left: 10px;
+ }
+
+ .product-adding {
+   margin-left: 10px;
+ }
