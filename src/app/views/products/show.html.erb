@@ -11,12 +11,10 @@
 <div class="product-information">
   <%# <%= render @product %> 
     <div class="product-title"><%= @product.title %></div>
-    <div>$<%= @product.price %></div>
+    <div>$ <%= @product.price %></div>
     <div><span class="product-subtitle">Colour:</span><%= @product.colour %></div>
     <div><span class="product-condition">Condition:</span><%= @product.condition %></div>
     <div class="product-description"><%= @product.description %></div>
-
-  <%= link_to "Back", products_path, class: "button" %>
 
   <% if current_user != nil && current_user.id == @product.user_id %>
     <%= link_to "Edit", edit_product_path(@product), class: "button" %> 
@@ -26,4 +24,6 @@
   <% elsif @product.sold %>
     <p class="sold-out">SOLD OUT</p>
   <% end %> 
+  <%= link_to "Back", products_path, class: "button" %>
+  
 </div>

@@ -43,6 +43,14 @@ h1.success-title {
    font-family: monospace, fantasy;
 }
 
+div.sign-up {
+   margin-left: 10px;
+}
+
+div.sign-in {
+   margin-left: 10px;
+}
+
 div.background-image > img {
     width: 100%;
 }

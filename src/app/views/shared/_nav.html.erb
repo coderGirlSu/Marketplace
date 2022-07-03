@@ -4,6 +4,7 @@
     <%= link_to "Guide", pages_guide_path, class: "button" %>
 
     <span style = "float: right">
+        <%= link_to "Add new product", new_product_path, class: "button button-primary" %>
         <% if user_signed_in? %>
             <%= link_to "Sign out", destroy_user_session_path,class: "button button-primary", data: {turbo_method: :delete} %>
         <% else %>
