@@ -62,7 +62,6 @@ div.background-image > img {
  div.product-layout {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
  }
 
  div.product-layout > div {
