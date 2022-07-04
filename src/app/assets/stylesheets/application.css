@@ -74,6 +74,9 @@ div.background-image > img {
  div.product-layout > div.image > img {
     width: 100%;
  }
+ 
+  
+
 
  div.product-layout > div.image > .product-title {
    font-weight: bold;
@@ -144,3 +147,5 @@ div.background-image > img {
  .product-adding {
    margin-left: 10px;
  }
+
+ 
