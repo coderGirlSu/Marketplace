@@ -5,7 +5,8 @@ class ProductsController < ApplicationController
   before_action :authorize_user, only: [:edit, :update, :destory]
   # GET /products or /products.json
   def index
-    @products = Product.all
+   q = request.query_parameters["q"]
+   @products = Product.where("title like ?","%#{q}%")
   end
 
   # GET /products/1 or /products/1.json
