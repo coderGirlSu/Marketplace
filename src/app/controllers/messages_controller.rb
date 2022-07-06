@@ -1,15 +1,15 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: %i[ show edit update destroy ]
+  before_action :authenticate_user! # make sure the user is authenticated before running any action
 
   # GET /messages or /messages.json
   def index
-    @messages = Message.all
+      @messages = Message.where(receiver_id:current_user.id) # SELECT * FROM Messages;
   end
 
   # GET /messages/1 or /messages/1.json
   def show
   end
-
   # GET /messages/new
   def new
     @message = Message.new
@@ -65,12 +65,14 @@ class MessagesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    # Private methods are not actions, They are used as regular methods
     def set_message
       @message = Message.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def message_params
+      # Only allow these parameters to be sent from a browser to rails
       params.require(:message).permit(:message, :product_id, :date, :sender_id, :receiver_id)
     end
 end

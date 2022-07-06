@@ -43,6 +43,10 @@ h1.success-title {
    font-family: monospace, fantasy;
 }
 
+h1.messages{
+   margin-left: 10px;
+}
+
 div.sign-up {
    margin-left: 10px;
 }
@@ -144,3 +148,23 @@ div.background-image > img {
  .product-adding {
    margin-left: 10px;
  }
+
+
+
+div#messages table tr:nth-child(even) {
+   background-color: #f8ebe8;
+   
+}
+
+
+td.message-delete-button form.button_to {
+   margin-bottom: 0px;
+}
+
+div#messages > table {
+   width: 100%;
+}
+
+th:first-child, td:first-child{   
+   padding-left: 10px;
+}

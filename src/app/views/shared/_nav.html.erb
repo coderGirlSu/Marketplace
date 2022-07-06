@@ -3,14 +3,15 @@
     <%= link_to "Products", products_path, class: "button" %>
     <%= link_to "Guide", pages_guide_path, class: "button" %>
 
-    <span style = "float: right">
+<span style = "float: right">
+    <% if user_signed_in? %>
         <%= link_to "Add new product", new_product_path, class: "button button-primary" %>
-        <% if user_signed_in? %>
-            <%= link_to "Sign out", destroy_user_session_path,class: "button button-primary", data: {turbo_method: :delete} %>
-        <% else %>
-            <%= link_to "Sign up", new_user_registration_path, class: "button button-primary" %>
-            <%= link_to "Sign in", new_user_session_path, class: "button button-primary" %>
-        <% end %>
-    </span>
+        <%= link_to "message", messages_path, class: "button button-primary" %>
+        <%= link_to "Sign out", destroy_user_session_path,class: "button button-primary", data: {turbo_method: :delete} %>
+    <% else %>
+        <%= link_to "Sign up", new_user_registration_path, class: "button button-primary" %>
+        <%= link_to "Sign in", new_user_session_path, class: "button button-primary" %>
+    <% end %>
+</span>
 
 </div>

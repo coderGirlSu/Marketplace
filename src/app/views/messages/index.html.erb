@@ -1,14 +1,26 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Messages</h1>
-
+<h1 class="messages">Messages</h1>
+ 
 <div id="messages">
-  <% @messages.each do |message| %>
-    <%= render message %>
-    <p>
-      <%= link_to "Show this message", message %>
-    </p>
-  <% end %>
+<table>
+    <tr>
+      <th>User</th>
+      <th>Email</th>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% @messages.each do |message| %>
+      <tr>
+        <td><%= message.sender.username %></td>
+        <td><%= message.sender.email %></td>
+        <td><%= message.date %></td>
+        <td><%= link_to "Show", message, class:"button" %></td>
+        <td class="message-delete-button"><%= button_to "Delete", message, method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %></td>
+      </tr>
+    <% end %>
+  </table>
 </div>
 
-<%= link_to "New message", new_message_path %>
+
