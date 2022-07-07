@@ -48,10 +48,6 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
 
-gem 'glib2'
-
-gem 'ruby-vips'
-
 gem 'active_storage_db' # An Active Storage service upload/download plugin that stores files in a PostgreSQL
 
 group :development, :test do
