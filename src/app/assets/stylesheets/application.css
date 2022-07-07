@@ -175,3 +175,7 @@ th:first-child, td:first-child{
 div.message-show {
    margin-left: 10px;
 }
+
+form {
+   margin-left: 10px;
+}
