@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'pages/guide'
   post "products/:id/order", to: "products#place_order", as: "place_order"
   get 'pages/success', to: 'pages#success', as: "order_success"
+  post "messages/:id/reply", to: "messages#place_reply", as: "place_reply"
+
   mount ActiveStorageDB::Engine => '/active_storage_db'
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

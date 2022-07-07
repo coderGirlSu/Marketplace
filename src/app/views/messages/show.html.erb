@@ -1,9 +1,38 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @message %>
+<div class="message-show">
+  <% if @message.product.picture.attached? %>
+    <%= link_to image_tag(@message.product.picture, alt: @message.product.title), url_for({:controller => 'products', :action => 'show', :id => @message.product.id}) %>
+  <% else %>
+    <%= image_tag asset_path ("35.jpg"), alt: @message.product.title %>
+  <% end %>
 
-<div>
+  <p><%= @message.product.title %></p>
+  <p>$ <%= @message.product.price %></p>
+  <p>From: <%= @message.sender.username %></p>
+  <p>Date: <%= @message.date %></p>
+  <p>Message: <%= @message.message %></p>
+
+
+ <%= form_for @reply_message, :url => url_for(:controller => 'messages', :action => 'place_reply') do |form| %>
+
+  <div>
+    <%= form.label :message, style: "display: block" %>
+    <%= form.text_area :message %>
+  </div>
+  <%= form.hidden_field :product_id %>
+  <%= form.hidden_field :receiver_id %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+ <% end %>  
+
+
   <%= link_to "Back", messages_path, class:"button" %>
 
   <%= button_to "Delete", @message, method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %>
+  
+
 </div>

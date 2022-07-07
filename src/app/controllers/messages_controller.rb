@@ -9,7 +9,11 @@ class MessagesController < ApplicationController
 
   # GET /messages/1 or /messages/1.json
   def show
+    @reply_message = Message.new
+    @reply_message.receiver_id = @message.sender_id
+    @reply_message.product_id = @message.product_id
   end
+
   # GET /messages/new
   def new
     @message = Message.new
@@ -31,13 +35,34 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to message_url(@message), notice: "Message was successfully created." }
+        format.html { redirect_to message_url(@message), notice: "Message was successfully sent." }
         format.json { render :show, status: :created, location: @message }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def place_reply
+    @message = Message.new(message_params)
+    @message.sender_id = current_user.id
+    @message.date = Time.current
+   
+
+    respond_to do |format|
+      if @message.save
+        format.html { redirect_to url_for(:controller => 'messages', :action => 'index'), notice: "Reply was successfully sent." }
+        format.json { render :show, status: :created, location: @message }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @message.errors, status: :unprocessable_entity }
+      end
+    end
+
+  end
+
+  def sent
   end
 
   # PATCH/PUT /messages/1 or /messages/1.json
