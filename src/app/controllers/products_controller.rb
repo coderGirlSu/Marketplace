@@ -13,6 +13,14 @@ class ProductsController < ApplicationController
   def show
   end
 
+  def my_products
+    @products = Product.where(user_id: current_user.id)
+  end
+
+  def my_orders
+    @orders = Order.where(buyer_id: current_user.id)
+  end
+
   # GET /products/new
   def new
     @product = Product.new

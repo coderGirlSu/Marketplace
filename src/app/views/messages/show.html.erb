@@ -12,20 +12,19 @@
   <p>Date: <%= @message.date %></p>
   <p>Message: <%= @message.message %></p>
 
-
+  <%# #form for reply message %>
  <%= form_for @reply_message, :url => url_for(:controller => 'messages', :action => 'place_reply') do |form| %>
 
     <div>
       <%= form.label :message, style: "display: block" %>
       <%= form.text_area :message %> 
-      <%# # :message like a message holder %>
+      <%# # :message like a message holder, it will be replaced when a new message in %>
     </div>
     <%= form.hidden_field :product_id %>
     <%= form.hidden_field :receiver_id %>
 
     <%= form.submit value="Reply"%>
   
-
  <% end %>  
 
 

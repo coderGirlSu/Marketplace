@@ -4,10 +4,11 @@ class MessagesController < ApplicationController
 
   # GET /messages or /messages.json
   def index
-      @messages = Message.where(receiver_id:current_user.id) # SELECT * FROM Messages;
+      @messages = Message.where(receiver_id: current_user.id)
   end
 
   # GET /messages/1 or /messages/1.json
+  # reply_message will be shown once open the message show page.
   def show
     @reply_message = Message.new
     @reply_message.receiver_id = @message.sender_id
@@ -44,6 +45,7 @@ class MessagesController < ApplicationController
     end
   end
 
+# place_reply only executed when it been called
   def place_reply
     @message = Message.new(message_params)
     @message.sender_id = current_user.id
