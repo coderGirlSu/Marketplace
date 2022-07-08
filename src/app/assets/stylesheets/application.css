@@ -159,7 +159,6 @@ div#messages table tr:nth-child(even) {
    
 }
 
-
 td.message-delete-button form.button_to {
    margin-bottom: 0px;
 }
@@ -178,5 +177,13 @@ div.message-show {
 
 div.message-show  img {
    width: 8%;
+}
+
+div#my-orders table tr:nth-child(even) {
+   background-color: #fbf2d7;
+}
+
+div#my-orders > table {
+   width: 100%;
 }
 
