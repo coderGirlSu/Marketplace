@@ -38,70 +38,102 @@ At the same time, the high water consumption in the production of clothing, chem
 
 ### Purpose
 
+As the problem of global warming worsens, and the popularity of fast fashion brands. Little attention has been paid to the impact of the shopping habits that people develop to follow trends on our living environment. Therefore, I designed this two-sided marketplace, which is based on the protection of the environment to encourage everyone to recycle their own effective resources, sell or buy their own idle items, and develop shopping habits that are not wasteful, so as to protect our only and beautiful earth.
+
 ### Functionality / features
+
+Hamburger menu
+
+Searching bar
+
+Messaging 
+
+Image uploading
+
+Rich text
+
 
 ### Sitemap
 
+![sitemap](docs/sitemap.png)
+
 ### Screenshots
+
+Home Page
+![home](docs/20.png)
+Products Page
+![products](docs/21.png)
+Product Buyer-Page
+![product-buyer](docs/22.png)
+Product Seller-Page
+![product-seller](docs/23.png)
+Editing Page
+![editing](docs/24.png)
+Add New Product Page
+![add new product](docs/25.png)
+Contact Page
+![contact](docs/26.png)
+Success Page
+![success](docs/27.png)
+Sold Out Page
+![sold out](docs/28.png)
+Condition Guide Page
+![guide](docs/29.png)
+My Products Page
+![my products](docs/30.png)
+My Orders Page
+![my orders](docs/31.png)
+Message list Page
+![message list](docs/32.png)
+Reply message Page
+![reply message](docs/33.png)
+
 
 ### Target audience
 
-The target audience for this app will be vintage clothes enthusiasts who Interested in collecting unique and special stuff.
+The target audience is all people who pay attention to and value global warming and environmental protection, as well as vintage lovers. In this vintage market, users can sell their idle items as sellers, and can also buy their favorite vintage items from other sellers. On this platform, people’s purchasing habit of recycling not only facilitates users to dispose of their restricted items, but also reduces the environmental pollution caused by a large amount of carbon emissions when incinerating discarded items.
 
 ### Tech stack (e.g. html, css, deployment platform, etc)
 
 - Visual Studio Code
-- Rails
+- Ruby on Rails
 - Ruby
-- Postgresql database
-- draw.io - Drawing ERD and sitemap
-<!-- - Stripe - payment platform
-- Bootstrap - css framework -->
+- Postgresql- database
+- draw.io - Drawing ERD 
+- XMind - Sitemap
+<!-- - Bootstrap - css framework  -->
 - Heroku - Web hosting
-- HTML
-- CSS
+- HTML - Layout
+- CSS -styling
 - Balsamiq Wireframes
+- GitHub - source control
 
 ---
 
 ## R12 User stories for your app
 
-- As a user, I want to have an user section where I can view all my purchase and post, and also I can sign in/sign out and delete my own account.
-- As a user, I want to have a search bar where I can search the specific items which I want.
-- As a user, I want to be able to view all listing of items sorted by Category.
-- As a user, I want to be able to contact seller/buyer via message for asking/answer questions.
+User's perspective:
 
+- As a user, I want to be able to register and log in to the site, so that I can sell my products or buy products.
 
+Buyer's perspective:
 
+- As a buyer, I want to be able to have a search bar to search for related items, so that I can find items I'm interested in faster.
+- As a buyer, I want to have a section that shows all the items I've purchased，so that I can easily see all the information about the items I've purchased.
+- As a buyer, I want to have a Contact Seller section where I can message the seller, so that I can easily inquire about the specifics of the item I want to buy.
+- As a buyer, I want to know some terms that describe the condition of used goods without specific definitions, so that I can imagine the condition of the goods based on the conditions described on the website, in case I buy a dishonest product.
+- As a buyer, I want to have the function of purchasing goods and remind me that the purchase has been successful after purchase, so that I can ensure that I have successfully purchased the goods I like.
+- As a buyer, I want to be able to know which items have been sold out, so that I can make sure I don't keep buying that item.
+- As a buyer, I want to see all product listings without registering or logging in, so that I can be sure if this is the type of site I'm looking for.
 
+Seller's perspective:
 
-
-<!-- As a User, I want to be able to see the list of robots on the website, so that I know what robots are available.
-As a User, I want to be able to sort and filter the robots, so that I can find robots I am interested in quicker.
-As a Signed up User, I want to be able to log into the site, so that I can access my account.
-As a Logged in User, I want to sign out, so that I can end my session on the site.
-As a Logged in User, I want to edit my information, so that if my information changes I can update it.
-As a Logged in User, I want to delete my profile, so that remove my information from the system when I no long want it.
-As a Buyer, I want to see my previous purchases, so that I can see what robots I have bought before.
-As a Buyer, I want to be able to purchase a robot , so that I can take it home and use it.
-As a Buyer, I want to receive a confirmation email, so that I have know the order has gone through and I have record of it.
-As a Seller, I want to be able to post robots to sell, so that a buyer can purchase them.
-As a Seller, I want to update my robot posts, so that if information is incorrect I can edit it.
-As a Seller, I want to remove my robot posts, so that if I no longer want to sell the robot it can be taken off the site .
-As a Seller, I want to see all the robots I have posted, so that I know which robots I have put up for sale.
-As a Seller, I want to see which robots have been sold, so that I can figure out which are the popular ones.
-As a Seller, I want to be able to upload images, so that I can show users what my robot looks like.
-
-As a user, I want to have a profile page where I can easily update myself.
-As a user, I want to view all listings, filter listings to find neary-by listings.
-As a user, I want to create my ownn listing and be able to manage this individually and also collectively, such as a edit function after a listing is created.
-As a user, I want to buy other users' listings using credit card in a safe enviroment.
-As a user, I want to be able to delete my own account.
-As a user, I want to have confidence that only myself can make modications to my own profile page and any listing I may have.
-As a user, I want to be able to view all listings without having to log in to do so.
-As a user, I want to be able to contact the app owner if I have any questions or have any complaints
-As a user, I want to be able to contact the seller of a listing and ask many questions. -->
-
+- As a seller, I want to have a section that displays all of my products listing, so that I can easily see how all of my listings are selling.
+- As a seller, I want to have a section where I can view and reply messages, so that I can easily view all the inquiries sent to me by buyers and reply in a timely manner.
+- As a seller, I want the picture and link of the corresponding product can be attached to the buyer's inquiry message at the same time, so that I can clearly know which product the buyer is inquiring about and quickly find the information of the product.
+- As a seller, I want to have an obvious and convenient button to add new items, so that I can add items that I want to sell at any time.
+- As a seller, I want to be able to edit my products, so that I can update or delete the products I list at any time, and also buyers can get the latest product information.
+- As a seller, I want to be able to upload images, describe items condition and information, so that buyer can clearly know the detailed condition of the product.
 
 ---
 
@@ -163,12 +195,171 @@ Reply message Page
 
 ## R19 Provide your database schema design
 
+Rich texts
 
-![Database schema](docs/database_schema.png)
+```rb
+  create_table "action_text_rich_texts", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "body"
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
+  end
+```
+
+Active storage attachments
+
+```rb
+create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+```
+
+Active storage blobs
+
+```rb
+ create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.bigint "byte_size", null: false
+    t.string "checksum"
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+```
+
+Active storage database files
+
+```rb
+create_table "active_storage_db_files", force: :cascade do |t|
+    t.string "ref", null: false
+    t.binary "data", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.index ["ref"], name: "index_active_storage_db_files_on_ref", unique: true
+  end
+```
+
+Active storage records
+
+```rb
+ create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+```
+
+Category database table
+
+```rb
+create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+```
+
+Message database table
+
+```rb
+ create_table "messages", force: :cascade do |t|
+    t.text "message"
+    t.bigint "product_id", null: false
+    t.date "date"
+    t.bigint "sender_id", null: false
+    t.bigint "receiver_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_messages_on_product_id"
+    t.index ["receiver_id"], name: "index_messages_on_receiver_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
+  end
+```
+
+Order database table
+
+```rb
+create_table "orders", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "buyer_id", null: false
+    t.bigint "seller_id", null: false
+    t.date "date"
+    t.boolean "paid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["buyer_id"], name: "index_orders_on_buyer_id"
+    t.index ["product_id"], name: "index_orders_on_product_id"
+    t.index ["seller_id"], name: "index_orders_on_seller_id"
+  end
+```
+
+Product database table
+
+```rb
+create_table "products", force: :cascade do |t|
+    t.string "title"
+    t.boolean "sold", default: false
+    t.bigint "category_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "price"
+    t.integer "colour"
+    t.integer "condition"
+    t.date "listed_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["user_id"], name: "index_products_on_user_id"
+  end
+```
+
+User database table
+
+```rb
+create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "username"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "address"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+```
+
+Foreign Keys
+
+```rb
+add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "messages", "products"
+  add_foreign_key "messages", "users", column: "receiver_id"
+  add_foreign_key "messages", "users", column: "sender_id"
+  add_foreign_key "orders", "products"
+  add_foreign_key "orders", "users", column: "buyer_id"
+  add_foreign_key "orders", "users", column: "seller_id"
+  add_foreign_key "products", "categories"
+  add_foreign_key "products", "users"
+```
 
 ---
 
 ## R20 Describe the way tasks are allocated and tracked in your project
+
 I was using Trello board to allocate and track my project, I have 5 columns to consider, they are Optional features, to do, doing, today and done. 
 
 

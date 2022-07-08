@@ -176,6 +176,10 @@ div.message-show {
    margin-left: 10px;
 }
 
+div.message-show  img {
+   width: 8%;
+}
+
 form {
    margin-left: 10px;
 }
