@@ -187,3 +187,8 @@ div#my-orders > table {
    width: 100%;
 }
 
+.search-bar > .bar {
+   margin-left: 10px;
+   width: 19.2%;
+}
+
