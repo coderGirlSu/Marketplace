@@ -3,7 +3,7 @@
 <div id="messages">
 <table>
     <tr>
-      <th>User</th>
+      <th>From</th>
       <th>Email</th>
       <th>Date</th>
       <th></th>
@@ -13,7 +13,7 @@
       <tr>
         <td><%= message.sender.username %></td>
         <td><%= message.sender.email %></td>
-        <td><%= message.date %></td>
+        <td><%= message.created_at.in_time_zone('Sydney').to_formatted_s(:short) %></td>
         <td><%= link_to "Show", message, class:"button" %></td>
         <td class="message-delete-button"><%= button_to "Delete", message, method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %></td>
       </tr>

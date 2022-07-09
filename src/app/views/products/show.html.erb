@@ -13,7 +13,7 @@
     <div class="product-title"><%= @product.title %></div>
     <div>$ <%= @product.price %></div>
     <div><span class="product-subtitle">Colour:</span><%= @product.colour %></div>
-    <div><span class="product-condition">Condition:</span><%= @product.condition %></div>
+    <div><span class="product-condition">Condition: </span><%= format_condtion(@product.condition) %></div>
     <div class="product-description"><%= @product.description %></div>
 
   <% if current_user != nil && current_user.id == @product.user_id %>
