@@ -6,11 +6,13 @@
 <div class="product-layout">
   <% @products.each do |product| %>
     <div class="image">
+    <div class="image-container">
       <% if product.picture.attached? %>
         <%= image_tag product.picture, alt: product.title %>
       <% else %>
         <%= image_tag asset_path ("35.jpg"), alt: product.title %>
       <% end %>
+    </div>
 
       <div class="product-title">
           <%= product.title %>

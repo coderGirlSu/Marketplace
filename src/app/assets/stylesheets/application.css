@@ -73,19 +73,27 @@ div.background-image > img {
     /* border: 1px black solid; */
     padding: 10px;
     width: 20%;
+    min-width: 200px;
  }
 
- div.product-layout > div.image > img {
+ div.product-layout > div.image > div.image-container > img {
     width: 100%;
+    max-width: 270px;
  }
  
-  
+ div.product-layout > div.image > div.image-container {
+   height:70%;
+   width: 100%;
+ }
 
 
  div.product-layout > div.image > .product-title {
    font-weight: bold;
    font-size: 1.2em;
    font-size: 25px;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
  }
 
  div.product-layout > div.image > .price-title {
