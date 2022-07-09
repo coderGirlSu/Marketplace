@@ -101,7 +101,6 @@ The target audience is all people who pay attention to and value global warming 
 - Postgresql- database
 - draw.io - Drawing ERD 
 - XMind - Sitemap
-<!-- - Bootstrap - css framework  -->
 - Heroku - Web hosting
 - HTML - Layout
 - CSS -styling
@@ -178,10 +177,15 @@ Reply message Page
 
 ## R15 Explain the different high-level components (abstractions) in your app
 
+
 ---
 
 ## R16 Detail any third party services that your app will use
 
+Heroku (Web hosting service) - Heroku was used to host my website. It is a Platform as a Service (PaaS) and was chosen because it allows for both front end and back end to be hosted on their platform.
+
+Github
+Using Github to manage service for git source control repositories, and also to trigger automatic deployment through Heroku.
 ---
 
 ## R17 Describe your projects models in terms of the relationships (active record associations) they have with each other
@@ -387,6 +391,7 @@ And also, each ticket has a label and story points. I created 7 labels to organi
 ![Trello board screenshot](docs/board.png)
 ![Trello board screenshot](docs/board2.png)
 ![Trello board screenshot](docs/board3.png)
+![Trello board screenshot](docs/board4.png)
 
 
 ---
