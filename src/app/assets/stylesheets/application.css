@@ -14,6 +14,8 @@
  *= require_self
  */
 
+ /* Navigation bar css */
+
  .navbar {
    overflow: hidden;
     margin-top: 10px;
@@ -26,6 +28,7 @@
     color: #ededed;
  }
 
+ /* titles css */
 h1.title {
     color: #2e3047;
     margin-left: 10px;
@@ -48,6 +51,7 @@ h1.messages{
    margin-left: 10px;
 }
 
+/* sign up and in view page css */
 div.sign-up {
    margin-left: 10px;
 }
@@ -56,14 +60,17 @@ div.sign-in {
    margin-left: 10px;
 }
 
+/* home page background image css */
 div.background-image > img {
     width: 100%;
 }
 
+/* notice message css  */
  .notice {
     color:#3c773f;
  }
 
+ /* products page css */
  div.product-layout {
     display: flex;
     flex-wrap: wrap;
@@ -71,7 +78,6 @@ div.background-image > img {
 
  div.product-layout > div {
     margin: 10px;
-    /* border: 1px black solid; */
     padding: 10px;
     width: 20%;
     min-width: 200px;
@@ -86,7 +92,6 @@ div.background-image > img {
    height:70%;
    width: 100%;
  }
-
 
  div.product-layout > div.image > .product-title {
    font-weight: bold;
@@ -104,24 +109,6 @@ div.background-image > img {
 
  div.product-layout > div.image > .colour-title {
    font-weight:bold;
- }
-
- .guide-section {
-    display:flex
- }
-
- .guide-section > .guide-info {
-    padding-left: 20px;
- }
-
- .guide-title {
-    margin-left: 10px;
-    color: #2e3047;
-    font-family: monospace, fantasy;
- }
-
- .guide-introduction {
-    margin-left: 10px;
  }
 
  div.product-information {
@@ -161,11 +148,32 @@ div.background-image > img {
    margin-left: 10px;
  }
 
+ div.show-image img {
+   max-width: 100%;
+}
 
+ /* guide page css */
+ .guide-section {
+   display:flex
+}
 
+.guide-section > .guide-info {
+   padding-left: 20px;
+}
+
+.guide-title {
+   margin-left: 10px;
+   color: #2e3047;
+   font-family: monospace, fantasy;
+}
+
+.guide-introduction {
+   margin-left: 10px;
+}
+
+/* message listing table css */
 div#messages table tr:nth-child(even) {
    background-color: #f8ebe8;
-   
 }
 
 td.message-delete-button form.button_to {
@@ -180,6 +188,7 @@ th:first-child, td:first-child{
    padding-left: 10px;
 }
 
+/* message page css */
 div.message-show {
    margin-left: 10px;
 }
@@ -188,6 +197,7 @@ div.message-show  img {
    width: 8%;
 }
 
+/* my orders listing table css */
 div#my-orders table tr:nth-child(even) {
    background-color: #fbf2d7;
 }
@@ -196,11 +206,13 @@ div#my-orders > table {
    width: 100%;
 }
 
+/* search bar css */
 .search-bar > .bar {
    margin-left: 10px;
    width: 19.2%;
 }
 
+/* responsive css */
 /* When the screen under 1200px, navbar is hidden */
 @media only screen and (max-width: 1200px) {
    .navbar {
@@ -223,7 +235,7 @@ div#my-orders > table {
    position: absolute;
    overflow: hidden;
    height: 0px;
-   background-color: rgba(255, 255, 255, 0.881);
+   background-color: rgb(255, 255, 255);
    text-align: center;
    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
    right: 5px;
@@ -283,6 +295,3 @@ div#my-orders > table {
     margin-top: 0.8rem;
 }
 
-div.show-image img {
-   max-width: 100%;
-}

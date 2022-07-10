@@ -11,15 +11,15 @@ class MessagesController < ApplicationController
   # GET /messages/1 or /messages/1.json
   # reply_message will be shown once open the message show page.
   def show
-    @reply_message = Message.new # create a new message store in the reply_message variabel 
-    @reply_message.receiver_id = @message.sender_id # find the sender id in the current user message 
-    @reply_message.product_id = @message.product_id
+    @reply_message = Message.new 
+    @reply_message.receiver_id = @message.sender_id  # get the receiver message
+    @reply_message.product_id = @message.product_id # links to corresponding product
   end
 
   # GET /messages/new
   def new
     @message = Message.new
-    @message.product_id = request.query_parameters["product_id"]
+    @message.product_id = request.query_parameters["product_id"] # links the contact message to the corresponding product
   end
 
   # GET /messages/1/edit
@@ -27,6 +27,7 @@ class MessagesController < ApplicationController
   end
 
   # POST /messages or /messages.json
+  # send a message
   def create
     @message = Message.new(message_params)
     @message.sender_id = current_user.id
@@ -46,7 +47,7 @@ class MessagesController < ApplicationController
     end
   end
 
-# place_reply only executed when it been called
+# reply a message
   def place_reply
     @message = Message.new(message_params)
     @message.sender_id = current_user.id
@@ -69,6 +70,7 @@ class MessagesController < ApplicationController
   end
 
   # PATCH/PUT /messages/1 or /messages/1.json
+  # updated the message
   def update
     respond_to do |format|
       if @message.update(message_params)
@@ -82,6 +84,7 @@ class MessagesController < ApplicationController
   end
 
   # DELETE /messages/1 or /messages/1.json
+  # destory a message
   def destroy
     @message.destroy
 

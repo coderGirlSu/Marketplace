@@ -1,9 +1,10 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[ show edit update destroy place_order]
-  before_action :set_form_vars, only: %i[ new edit ]
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :authorize_user, only: [:edit, :update, :destory]
+  before_action :set_product, only: %i[ show edit update destroy place_order] # call the set_product method before runing show, edit, update and destory place_order actions
+  before_action :set_form_vars, only: %i[ new edit ] # call the set_form_vars method before new, edit actions
+  before_action :authenticate_user!, except: [:index, :show] # make sure the user is authenticated before running any action except index and show actions
+  before_action :authorize_user, only: [:edit, :update, :destory] # only authorized user allows to execute edit,update and destory actions 
   # GET /products or /products.json
+  # searching products through title 
   def index
    q = request.query_parameters["q"]
    @products = Product.where("title like ?","%#{q}%")
@@ -12,17 +13,20 @@ class ProductsController < ApplicationController
   # GET /products/1 or /products/1.json
   def show
   end
-
+ 
+   # find all current user's products
   def my_products
     q = request.query_parameters["q"]
     @products = Product.where("title like ?","%#{q}%").where(user_id: current_user.id)
   end
 
+  # find all current user's orders
   def my_orders
     @orders = Order.where(buyer_id: current_user.id)
   end
 
   # GET /products/new
+  # add a new product
   def new
     @product = Product.new
   end
@@ -32,6 +36,8 @@ class ProductsController < ApplicationController
   end
 
   # POST /products or /products.json
+
+   # create a new product
   def create
     
     @product = Product.new(product_params)
@@ -49,6 +55,8 @@ class ProductsController < ApplicationController
   end
 
   # PATCH/PUT /products/1 or /products/1.json
+
+  # updated the product
   def update
     respond_to do |format|
       if @product.update(product_params)
@@ -62,6 +70,7 @@ class ProductsController < ApplicationController
   end
 
   # DELETE /products/1 or /products/1.json
+  # delete a product
   def destroy
     @product.destroy
 
@@ -71,6 +80,7 @@ class ProductsController < ApplicationController
     end
   end
 
+  # order a product
   def place_order
     Order.create(
       product_id: @product.id,
@@ -95,6 +105,7 @@ class ProductsController < ApplicationController
       @colours = Product.colours.keys
     end
 
+    # check if it is an authorized user
     def authorize_user
       if @product.user_id != current_user.id
         flash[:alert] = "You can't do that!"

@@ -1,46 +1,5 @@
 # Marketplace Project - Su Zhang
 
-## Explain how the MVC architecture and concept of inheritance impact the structure of your application and the entities within it
-
-### Structure
-
-Rails follows the MVC architecture to structure an application and as such, divides the application into the pattern’s corresponding parts. A standard Rails application contains an app/ directory containing sub-directories for Models, Views and Controllers. The entities that make up the application core are then divided into the corresponding directories.
-
-Any data related entities that represent database information are placed in the Models directory. View related entities such as HTML layouts and related Rails code is placed in the Views directory and controlling logic code is places in the Controllers directory.
-
-When a request is made to the application, it is routed to the appropriate controller via a list of routes. The controller finds an appropriate view and interacts with models, which in turn interacts with database. The resulting view is then sent as a response from controller. The diagram below shows the process.
-
-![mvc](docs/mvc.png)
-
-
-### Inheritance
-
-Each MVC component that Rails contains also implements an inheritance structure.
-
-A standard Rails application uses a library called Active Record to implement Models. Each application’s entities, represented by models, inherit from a base class called ActiveRecord. An application’s entity Models can then further inherit each other to create any hierarchical relationship required. This is called Single Table Inheritance (STI).
-
-```rb
-class Company < ActiveRecord::Base; end
-class Firm < Company; end
-class Client < Company; end
-class PriorityClient < Client; end
-```
-
-This works by Active Record adding a type column to the database table to track the inheritance structure.
-
-Active Record also offers another type of inheritance called Polymorphic Inheritance. This is useful when models do not have a relationship or share data with each other, but still have a relationship with the polymorphic class. This type of inheritance can compromise data integrity however.
-
-Rails views also implement inheritance. A view can be made up on a number of partial views. This prevents the need for duplication across views and reduced the risk of layout inconsistency. It can be achieved using the render keyword which will cause the partial view to be rendered at the position the keyword is used. Rails view inheritance also links closely with Controller inheritance. If a view in not present in the expected location, Rails will follow up the controller’s inheritance tree in an attempt to find an appropriate view at the parent level.
-
-As well as Controllers aiding in View inheritance, since Controllers are just Ruby classes, they also take advantage of Ruby class inheritance. By default, all Rails controllers inherit from ApplicationController. A controller inheriting from another controller will inherit all methods and Actions from the parent unless they are overridden. This can be useful to reduce duplication of code which also reduces the risk of bugs developing or behaviours diverging.
-
-### Resources:
- -  [Ruby on Rails 7.0.3](https://api.rubyonrails.org/classes/ActiveRecord/Inheritance.html)
- - [Rails controller inheritance](https://stackoverflow.com/questions/12286333/rails-controller-inheritance)
- - [Rails View Template Inheritance](https://tweetegy.com/2014/04/rails-view-template-inheritance/)
-
----
-
 ## R7 Identification of the problem you are trying to solve by building this particular marketplace app.
 
 Society values the latest trends, the most fashionable clothing and the most stylish looks, and we rarely think about the environmental impact of our shopping habits. The desire to supply the latest fashion trends in abundance at low prices has led to the fashion industry becoming one of the world's major polluting industries. The industry is responsible for nearly 10% of greenhouse gas emissions, mainly due to the overproduction of clothing to meet consumer demand for "fast fashion". Things are cheap and throwaway, with only about 20% of clothing Recycled or reused, while vast quantities of fashion products end up in landfills or incinerated, creating huge carbon emissions. This call for cheap clothing to keep up with changing trends has devastating effects on our climate.
@@ -305,6 +264,10 @@ Mobile:
 
 ![mobile sign in page](docs/mobile-sign-up.png)
 
+#### Hamburger menu
+
+![hamburger menu](docs/navbar.png)
+
 ### Target audience
 
 The target audience is all people who pay attention to and value global warming and environmental protection, as well as vintage lovers. In this vintage market app, users can sell their old items as sellers, and can also buy their favourite vintage items from other sellers. On this platform, people’s purchasing habit of recycling not only facilitates users to dispose of their old items but also reduces the environmental pollution caused by high carbon emissions when incinerating discarded items.
@@ -393,6 +356,43 @@ Reply message Page
 
 ## R15 Explain the different high-level components (abstractions) in your app
 
+### Structure
+
+Rails follows the MVC architecture to structure an application and as such, divides the application into the pattern’s corresponding parts. A standard Rails application contains an app/ directory containing sub-directories for Models, Views and Controllers. The entities that make up the application core are then divided into the corresponding directories.
+
+Any data related entities that represent database information are placed in the Models directory. View related entities such as HTML layouts and related Rails code is placed in the Views directory and controlling logic code is places in the Controllers directory.
+
+When a request is made to the application, it is routed to the appropriate controller via a list of routes. The controller finds an appropriate view and interacts with models, which in turn interacts with database. The resulting view is then sent as a response from controller. The diagram below shows the process.
+
+![mvc](docs/mvc.png)
+
+
+### Inheritance
+
+Each MVC component that Rails contains also implements an inheritance structure.
+
+A standard Rails application uses a library called Active Record to implement Models. Each application’s entities, represented by models, inherit from a base class called ActiveRecord. An application’s entity Models can then further inherit each other to create any hierarchical relationship required. This is called Single Table Inheritance (STI).
+
+```rb
+class Company < ActiveRecord::Base; end
+class Firm < Company; end
+class Client < Company; end
+class PriorityClient < Client; end
+```
+
+This works by Active Record adding a type column to the database table to track the inheritance structure.
+
+Active Record also offers another type of inheritance called Polymorphic Inheritance. This is useful when models do not have a relationship or share data with each other, but still have a relationship with the polymorphic class. This type of inheritance can compromise data integrity however.
+
+Rails views also implement inheritance. A view can be made up on a number of partial views. This prevents the need for duplication across views and reduced the risk of layout inconsistency. It can be achieved using the render keyword which will cause the partial view to be rendered at the position the keyword is used. Rails view inheritance also links closely with Controller inheritance. If a view in not present in the expected location, Rails will follow up the controller’s inheritance tree in an attempt to find an appropriate view at the parent level.
+
+As well as Controllers aiding in View inheritance, since Controllers are just Ruby classes, they also take advantage of Ruby class inheritance. By default, all Rails controllers inherit from ApplicationController. A controller inheriting from another controller will inherit all methods and Actions from the parent unless they are overridden. This can be useful to reduce duplication of code which also reduces the risk of bugs developing or behaviours diverging.
+
+### Resources:
+
+ -  [Ruby on Rails 7.0.3](https://api.rubyonrails.org/classes/ActiveRecord/Inheritance.html)
+ - [Rails controller inheritance](https://stackoverflow.com/questions/12286333/rails-controller-inheritance)
+ - [Rails View Template Inheritance](https://tweetegy.com/2014/04/rails-view-template-inheritance/)
 
 ---
 
@@ -450,6 +450,23 @@ For extra context a message also belongs to a product and this is displayed to a
 
 ## R18 Discuss the database relations to be implemented in your application
 
+### User
+
+A User has a zero to many relationship with product. Product has one and only one user. So a user can create many products or no products. A product only belongs to a single user and only this user can edit this product.
+
+A user can send or receive zero to many messages. A message has one and only one sender and receiver. So the user can send messages between seller and buyer or a user can have no messages. A message only belongs to one seller or buyer.
+
+A user can have zero to many orders. Orders have one and only one buyer as a user and one and only one seller as a user. So a user can order many products,the order only belongs to one user.
+
+### Message
+
+A message has one and only one product. A product has zero to many messages.So each message can only refer to one product,but one product can refer to many messages.
+
+### Product 
+
+A product has zero or one orders. Orders have one and only one product. One product only can be orderd once or not at all.
+
+A product has one and only one category. A category has one to many products. A product only can be associated with one category, so a user can easily find the categorised products. A category can be referenced  by many products.
 
 ---
 
