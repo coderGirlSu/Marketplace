@@ -1,8 +1,9 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: %i[ show edit update destroy ]
+  before_action :set_message, only: %i[ show edit update destroy ] # call the set_message method before runing edit,update and destory actions
   before_action :authenticate_user! # make sure the user is authenticated before running any action
 
   # GET /messages or /messages.json
+  # index action will get all of the message for current user from message table and will be shown on the index page once open the message index page.
   def index
       @messages = Message.where(receiver_id: current_user.id)
   end
@@ -10,8 +11,8 @@ class MessagesController < ApplicationController
   # GET /messages/1 or /messages/1.json
   # reply_message will be shown once open the message show page.
   def show
-    @reply_message = Message.new
-    @reply_message.receiver_id = @message.sender_id
+    @reply_message = Message.new # create a new message store in the reply_message variabel 
+    @reply_message.receiver_id = @message.sender_id # find the sender id in the current user message 
     @reply_message.product_id = @message.product_id
   end
 

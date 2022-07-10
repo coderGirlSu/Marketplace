@@ -1,8 +1,45 @@
 # Marketplace Project - Su Zhang
 
 ## Explain how the MVC architecture and concept of inheritance impact the structure of your application and the entities within it
-(Precisely explains and shows understanding of how the MVC architecture and concept of inheritance impact the structure of your application and the entities within it)
 
+### Structure
+
+Rails follows the MVC architecture to structure an application and as such, divides the application into the pattern’s corresponding parts. A standard Rails application contains an app/ directory containing sub-directories for Models, Views and Controllers. The entities that make up the application core are then divided into the corresponding directories.
+
+Any data related entities that represent database information are placed in the Models directory. View related entities such as HTML layouts and related Rails code is placed in the Views directory and controlling logic code is places in the Controllers directory.
+
+When a request is made to the application, it is routed to the appropriate controller via a list of routes. The controller finds an appropriate view and interacts with models, which in turn interacts with database. The resulting view is then sent as a response from controller. The diagram below shows the process.
+
+![mvc](docs/mvc.png)
+
+
+### Inheritance
+
+Each MVC component that Rails contains also implements an inheritance structure.
+
+A standard Rails application uses a library called Active Record to implement Models. Each application’s entities, represented by models, inherit from a base class called ActiveRecord. An application’s entity Models can then further inherit each other to create any hierarchical relationship required. This is called Single Table Inheritance (STI).
+
+```rb
+class Company < ActiveRecord::Base; end
+class Firm < Company; end
+class Client < Company; end
+class PriorityClient < Client; end
+```
+
+This works by Active Record adding a type column to the database table to track the inheritance structure.
+
+Active Record also offers another type of inheritance called Polymorphic Inheritance. This is useful when models do not have a relationship or share data with each other, but still have a relationship with the polymorphic class. This type of inheritance can compromise data integrity however.
+
+Rails views also implement inheritance. A view can be made up on a number of partial views. This prevents the need for duplication across views and reduced the risk of layout inconsistency. It can be achieved using the render keyword which will cause the partial view to be rendered at the position the keyword is used. Rails view inheritance also links closely with Controller inheritance. If a view in not present in the expected location, Rails will follow up the controller’s inheritance tree in an attempt to find an appropriate view at the parent level.
+
+As well as Controllers aiding in View inheritance, since Controllers are just Ruby classes, they also take advantage of Ruby class inheritance. By default, all Rails controllers inherit from ApplicationController. A controller inheriting from another controller will inherit all methods and Actions from the parent unless they are overridden. This can be useful to reduce duplication of code which also reduces the risk of bugs developing or behaviours diverging.
+
+### Resources:
+ -  [Ruby on Rails 7.0.3](https://api.rubyonrails.org/classes/ActiveRecord/Inheritance.html)
+ - [Rails controller inheritance](https://stackoverflow.com/questions/12286333/rails-controller-inheritance)
+ - [Rails View Template Inheritance](https://tweetegy.com/2014/04/rails-view-template-inheritance/)
+
+---
 
 ## R7 Identification of the problem you are trying to solve by building this particular marketplace app.
 
@@ -46,26 +83,25 @@ As the problem of global warming worsens, and the popularity of fast fashion bra
 
 ### Functionality / features
 
-**Hamburger menu:** This website is responsive, which means it shows hamburger menu when the screen size is under 1200px instead of showing navbar.
+**Hamburger menu:** This website is responsive, which means it shows a hamburger menu when the screen size is under 1200px instead of showing the navigation menu.
 
-**My orders:** This page will list all the products I have ordered, users will be able to view all their orders on this page.
+**My orders:** The ability to list all the products a user has ordered. Users will be able to view all their orders on this page.
 
-**My products:** This page will list all of the products that I have posted. it is easy for users manage their products.
+**My products:** The ability to list all of the products that a user has posted for sale. It is easy for users to manage their products.
 
-**Searching bar:** The search bar located on the top of the products and my products page allows users to search their interested products and also narrow down the range of searching.
+**Product search:** Users can search for products they are interested in and narrow down the range of products using a search bar located on the top of the products and my products pages.
 
-**Messaging:** As sellers, they will be able to check their messages from message section where located on the top of the website, which is the part of the navbar. as buyers, they will be able to contact the seller through message section, or click on the contact button where is in the product page.
+**Messaging:** A two way messaging system between buyers and sellers allowing direct communication with context links to the products in question.
 
-**Image uploading:** Users will be able to upload the image of the product which they want to sell. The images are stored in the postgres database. 
+**Image uploading:** Upload of product images being sold to give users a clearer picture of the product they are viewing.
 
-**Edit and Add a product:** Users will be able to edit, delete, add new products to their website. 
+**Edit and Add a product:** The ability to edit, delete and add  products to the site website by and user.
 
-**Rich text:** Rich Text is a field type that enables users to create rich text content, It provides common text formatting options such as paragraphs, adding files, etc.
+**Rich text product descriptions:** Rich Text is a field type that enables users to create rich text content for their product listings. It provides common text formatting options such as paragraphs, adding files, etc.
 
-**Authentication:** Divise 
+**Authentication:** Secure authentication of users using Devise to ensure customer information and product listing are secure on the application.
 
-**Authorization:** Users have restrictions on what they can see and edit. 
-
+**Authorization:** Secure access restrictions on what can be accessed and edited including editing listed products and accessing customer sent messages.
 
 ### Sitemap
 
@@ -73,54 +109,165 @@ As the problem of global warming worsens, and the popularity of fast fashion bra
 
 ### Screenshots
 
-Home Page
-![home](docs/20.png)
-Products Page
-![products](docs/21.png)
-Product Buyer-Page
-![product-buyer](docs/22.png)
-Product Seller-Page
-![product-seller](docs/23.png)
-Editing Page
-![editing](docs/24.png)
-Add New Product Page
-![add new product](docs/25.png)
-Contact Page
-![contact](docs/26.png)
-Success Page
-![success](docs/27.png)
-Sold Out Page
-![sold out](docs/28.png)
-Condition Guide Page
-![guide](docs/29.png)
-My Products Page
-![my products](docs/30.png)
-My Orders Page
-![my orders](docs/31.png)
-Message list Page
-![message list](docs/32.png)
-Reply message Page
-![reply message](docs/33.png)
+#### Home Page
 
+Website:
+
+![home](docs/home.png)
+
+Tablet:
+
+![tablet-home](docs/ipad-home.png)
+
+Mobile:
+
+#### Products Page
+
+Website:
+
+![products](docs/products.png)
+
+Tablet:
+
+![tablet-products](docs/ipad-products.png)
+
+#### New Product Page
+
+Website:
+
+![add new product](docs/add-new-product.png)
+
+Tablet:
+
+![tablet-new-product](docs/ipad-new-product.png)
+
+#### Editing Product Page
+
+Website:
+
+![Editing product](docs/editing-product.png)
+
+Tablet:
+
+![tablet-editing-product](docs/ipad-editin-product.png)
+
+#### Editing Page
+
+Website:
+
+![Editing page](docs/editing.png)
+
+Tablet:
+
+![tablet-editing](docs/ipad-editing.png)
+
+#### Guid Page
+
+Website:
+
+![guide page](docs/guide.png)
+
+Tablet:
+
+![tablet-guide](docs/ipad-guide.png)
+
+#### Message page(click on picture to link to corresponding product page)
+
+Website:
+
+![message](docs/message.png)
+
+Tablet:
+
+![tablet-message](docs/ipad-reply-message.png)
+
+#### Messages Listing Page
+
+Website:
+
+![messages](docs/messages.png)
+
+Tablet:
+
+![tablet-message-listing](docs/ipad-message-listing.png)
+
+#### My Orders Listing Page
+
+Website:
+
+![my orders page](docs/my-orders.png)
+
+Tablet:
+
+![tablet orders](docs/ipad-my-orders.png)
+
+#### My Products Page
+
+Website:
+
+![my products](docs/my-products.png)
+
+Tablet:
+
+![tablet my product](docs/ipad-my-product.png)
+
+#### Search Page
+
+Website:
+
+![search](docs/search.png)
+
+Tablet:
+
+![tablet search page](docs/ipad-search.png)
+
+#### Sold Out Page
+
+Website:
+
+![sold out](docs/sold-out.png)
+
+Tablet:
+
+![tablet sold out page](docs/ipad-soldout.png)
+
+#### Sign In Page
+
+Website:
+
+![sign in](docs/sign-in.png)
+
+Tablet:
+
+![tablet sign in page](docs/ipad-sign-in.png)
+
+#### Sign up Page
+
+Website:
+
+![sign up](docs/sign-up.png)
+
+Tablet:
+
+![tablet sign up page](docs/ipad-sign-up.png)
 
 ### Target audience
 
 The target audience is all people who pay attention to and value global warming and environmental protection, as well as vintage lovers. In this vintage market app, users can sell their old items as sellers, and can also buy their favourite vintage items from other sellers. On this platform, people’s purchasing habit of recycling not only facilitates users to dispose of their old items but also reduces the environmental pollution caused by high carbon emissions when incinerating discarded items.
 
 ### Tech stack (e.g. html, css, deployment platform, etc)
-(discrib!!!!!)
-- Visual Studio Code
-- Ruby on Rails
-- Ruby
-- Postgresql- database in development and production
-- draw.io - Drawing ERD 
-- XMind - Sitemap
-<!-- - Bootstrap - css framework  -->
-- Heroku - Website hosting
-- HTML - Layout
-- CSS -styling
-- Balsamiq Wireframes
-- GitHub - source control
+
+- Visual Studio Code - An Integrated Development Environment (IDE) for writing code in a large number of languages
+- Ruby on Rails - A Ruby framework for developing web based applications in Rails
+- Ruby - A popular coding language
+- PostgreSQL- A popular free and open-source database management system used in development and production environments
+- Heroku - A cloud hosting platform used to host the staging and production environment and control the deployment pipeline
+- HTML - Layout language used to build the user interface of the application
+- CSS - Styling language used to style the user interface of the application
+- GitHub - A cloud source control platform used to track changes and as part of the deployment pipeline
+- draw.io - An free online tool to draw diagrams used to draw the ERD for this application
+- XMind - A application used to draw mind maps. Used to draw the sitemap
+- Balsamiq Wireframes - A tool to draw user interface wireframes
 
 ---
 
@@ -197,30 +344,54 @@ Reply message Page
 
 ## R16 Detail any third party services that your app will use
 
-Heroku (Web hosting service) - Heroku is a Platform as a Service (PaaS) which provides a set of capabilities that allows me to deploy, manage and host my website. I was chosen because it no need to understand server configuration, network management, or tune the latest version of the database.
+### Heroku (Web hosting service)
 
-Github
-I was using Github to host my source code and keep track of the various changes, it makes esaier to reviewing, improving, and delivering new features and  making a better workflow. And also to deploy code through Github to Heroku.
+Heroku is a Platform as a Service (PaaS) which provides a set of capabilities that allows me to deploy, manage and host my website. I selected to use it because it does not require understanding of server configuration, network management, or how to tune the latest version of the database.
 
-Devise: I used Devise gem to generated a User model in rails as an authentication system. Because, Devise take care of all the controllers necessary for User, like log in and out, email, password for registration. And also allows me to add username section which is very flexible and easy to setup. 
+### GitHub
+
+I used GitHub to host my source code and keep track of changes. It makes it easier to review, improve and deliver new features and provides a workflow. I also used it as part of my deployment pipeline to deploy code from Github to Heroku.
+
+### Devise
+
+I used the Devise `gem` to generated a User model in rails as an authentication system. Devise takes care of all the actions necessary for a User, such as logging in and out, sending emails and password for registration. Devise is easy and flexible to configure. I extended it by adding a username property to the User model.
 
 ---
 
 ## R17 Describe your projects models in terms of the relationships (active record associations) they have with each other
 
-has many 
-belongs to
-A user if set up under the role of a 'restaurant' is able to create many restaurants (has_many). This is to cover scenarios where one user login has multiple relationships.
+### User
 
-A restaurant can only belong to one user (belongs_to). This is to ensure that a user who did not create the resturant cannot edit or delete a restaurant created by another user. All restaurants can view other restaurants listed on the app, in order to be able to view what customers can view on the index.
+A User can sell their products on the site and as such has a `has_many :products` relationship.
 
-A restaurant can upload an image attached to the listing.
+When orders have been placed it is possible to list them all. These orders are divided into two groups. A user can sell many items which is represented with a `has_many :sold_orders` relationship with a specific foreign key and class name of `foreign_key: "seller_id", class_name: "Order"`. Orders for items the user has purchased is achieved with a `has_many :bought_orders` relationship and `foreign_key: "buyer_id", class_name: "Order"`.
 
-A user can have many sign in's as a user can check into many restaurants on the app (has_many). This enables the user to view a list of all their CheckIn's (i.e. where they have been) on the app. The restaurant the user CheckedIn can be viewed on the index page.
+Users can send messages between buyers and sellers. To achieve this, two relationships are established. `has_many :messages, foreign_key: "sender_id", class_name: "User"` for messages that the user has sent and `has_many :messages, foreign_key: "receiver_id", class_name: "User"` for messages that the user has received. These will be used in a future implementation.
 
-A user can provide many feedbacks to the restaurant (has_many). Each feedback is linked to the user ID and restaurant ID ensuring that the correct customer and restaurant user can view the app.
+### Product
 
-A user can upload an image attached to the feedback. This includes scenarios where they want to include a picture of the food, reciept, etc.
+Each product belongs to a single category, represented with the `belongs_to :category` relationship. Every product must also belong to a single user, represented with the `belongs_to :user` relationship.
+
+A product has a condition and color property, represented by the corresponding `enum condition` and `enum colour` values.
+
+Products also have of a rich text formatted description and an uploaded picture. These are stored in different entities and have relationships as `has_rich_text :description` and  `has_one_attached :picture`.
+
+### Category
+
+Categories are used to group products and there can be  many products under each category. This is represented with a `has_many :products` relationship.
+
+### Order
+
+When an order is placed, it belongs to a particular product, as such, it is represented with the `belongs_to :product` relationship.
+
+An order also belongs to both a particular buyer and a seller and is represented with the `belongs_to :buyer, foreign_key: "buyer_id", class_name: "User"` and `belongs_to :seller, foreign_key: "seller_id", class_name: "User"` relationships.
+
+### Message
+
+Messages are sent between buyers and sellers and always belong to a sender and receiver. This is represented using a `belongs_to :sender, foreign_key: "sender_id", class_name: "User"` and a `belongs_to :receiver,foreign_key: "receiver_id", class_name: "User"` relationship.
+
+For extra context a message also belongs to a product and this is displayed to a user when viewing the messages. As such a `belongs_to :product` relationship represents this.
+
 ---
 
 ## R18 Discuss the database relations to be implemented in your application

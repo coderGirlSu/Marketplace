@@ -282,3 +282,7 @@ div#my-orders > table {
  .hamburger span::after {
     margin-top: 0.8rem;
 }
+
+div.show-image img {
+   max-width: 100%;
+}
