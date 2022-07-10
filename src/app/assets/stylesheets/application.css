@@ -223,7 +223,7 @@ div#my-orders > table {
    position: absolute;
    overflow: hidden;
    height: 0px;
-   background-color: rgba(255, 255, 255, 0.514);
+   background-color: rgba(255, 255, 255, 0.881);
    text-align: center;
    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
    right: 5px;
