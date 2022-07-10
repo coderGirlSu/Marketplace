@@ -15,6 +15,7 @@
  */
 
  .navbar {
+   overflow: hidden;
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
@@ -200,3 +201,84 @@ div#my-orders > table {
    width: 19.2%;
 }
 
+/* When the screen under 1200px, navbar is hidden */
+@media only screen and (max-width: 1200px) {
+   .navbar {
+     height: 0px;
+   }
+ }
+
+ /* When the screen over 1200px, hamburger is hidden */
+ @media only screen and (min-width: 1200px) {
+   .hamburger-toggle {
+      height: 0px;
+   }
+   .hamburger {
+      height: 0px;
+      overflow: hidden;
+   }
+ }
+
+ .hamburger-menu {
+   position: absolute;
+   overflow: hidden;
+   height: 0px;
+   background-color: rgba(255, 255, 255, 0.514);
+   text-align: center;
+   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+   right: 5px;
+   top: 5px;
+ }
+
+ .hamburger-menu a {
+   display: block;
+   padding-bottom: 5%;
+   font-family: monospace, fantasy;
+   font-size: 1.4em;
+   padding-left: 40px;
+   padding-right: 40px;
+   padding-bottom: 15px;
+ }
+
+ .hamburger-toggle {
+   position: absolute;
+   right: 10px;
+   z-index: 2;
+   width: 50px;
+   height: 30px;
+   opacity: 0;
+ }
+
+ .hamburger-toggle:checked ~ .hamburger-menu {
+   height:auto;
+ }
+
+ .hamburger {
+   position: absolute;
+   width: 50px;
+   right: 10px;
+   z-index: 1;
+ }
+
+.hamburger span,
+.hamburger span::before,
+.hamburger span::after 
+{ 
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4.5px;
+    position: absolute;
+    /* margin-top: 1.2rem; */
+    background: #b6483a;
+    border-radius: 0.3rem;
+    margin-top: 10px;
+}
+
+.hamburger span::before {
+    margin-top: -0.8rem;
+}
+
+ .hamburger span::after {
+    margin-top: 0.8rem;
+}

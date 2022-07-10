@@ -3,17 +3,39 @@
     <%= link_to "Products", products_path, class: "button" %>
     <%= link_to "Guide", pages_guide_path, class: "button" %>
 
-<span style = "float: right">
-    <% if user_signed_in? %>
-        <%= link_to "My products", my_products_path, class: "button button-primary" %>
-        <%= link_to "Add new product", new_product_path, class: "button button-primary" %>
-        <%= link_to "My orders", my_orders_path, class: "button button-primary" %>
-        <%= link_to "message", messages_path, class: "button button-primary" %>
-        <%= link_to "Sign out", destroy_user_session_path,class: "button button-primary", data: {turbo_method: :delete} %>
-    <% else %>
-        <%= link_to "Sign up", new_user_registration_path, class: "button button-primary" %>
-        <%= link_to "Sign in", new_user_session_path, class: "button button-primary" %>
-    <% end %>
-</span>
+    <span style = "float: right">
+        <% if user_signed_in? %>
+            <%= link_to "My products", my_products_path, class: "button button-primary" %>
+            <%= link_to "Add new product", new_product_path, class: "button button-primary" %>
+            <%= link_to "My orders", my_orders_path, class: "button button-primary" %>
+            <%= link_to "message", messages_path, class: "button button-primary" %>
+            <%= link_to "Sign out", destroy_user_session_path,class: "button button-primary", data: {turbo_method: :delete} %>
+        <% else %>
+            <%= link_to "Sign up", new_user_registration_path, class: "button button-primary" %>
+            <%= link_to "Sign in", new_user_session_path, class: "button button-primary" %>
+        <% end %>
+    </span>
 
+</div>
+
+
+<input type="checkbox" class="hamburger-toggle" />
+<div class="hamburger">
+    <span></span>
+</div>
+<div class="hamburger-menu">
+    <%= link_to "Home", root_path %>
+    <%= link_to "Products", products_path %>
+    <%= link_to "Guide", pages_guide_path %>
+
+     <% if user_signed_in? %>
+            <%= link_to "My products", my_products_path %>
+            <%= link_to "Add new product", new_product_path %>
+            <%= link_to "My orders", my_orders_path %>
+            <%= link_to "message", messages_path %>
+            <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete} %>
+        <% else %>
+            <%= link_to "Sign up", new_user_registration_path %>
+            <%= link_to "Sign in", new_user_session_path %>
+        <% end %>
 </div>
