@@ -14,7 +14,8 @@ class ProductsController < ApplicationController
   end
 
   def my_products
-    @products = Product.where(user_id: current_user.id)
+    q = request.query_parameters["q"]
+    @products = Product.where("title like ?","%#{q}%").where(user_id: current_user.id)
   end
 
   def my_orders
