@@ -122,7 +122,7 @@ Tablet:
 
 Mobile:
 
-![mobile editing page](docs/mobile-editing-product.png)
+![mobile editing page](docs/mobile-editing2.png)
 
 #### Editing Page
 
